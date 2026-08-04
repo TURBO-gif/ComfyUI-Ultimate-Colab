@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![CI](https://github.com/your-username/ComfyUI-Ultimate-Colab/workflows/CI/badge.svg)](https://github.com/your-username/ComfyUI-Ultimate-Colab/actions)
+[![CI](https://github.com/TURBO/ComfyUI-Ultimate-Colab/workflows/CI/badge.svg)](https://github.com/TURBO/ComfyUI-Ultimate-Colab/actions)
 
 </div>
 
