@@ -1,18 +1,31 @@
 import os
+import subprocess
 
-from .utils import run
+COMFY_DIR = "/content/ComfyUI"
+
+REPO = "https://github.com/comfyanonymous/ComfyUI.git"
 
 
 def install():
 
-    if os.path.exists("/content/ComfyUI"):
+    if not os.path.exists(COMFY_DIR):
 
-        print("ComfyUI already installed")
+        subprocess.run(
+            [
+                "git",
+                "clone",
+                REPO,
+                COMFY_DIR,
+            ],
+            check=True,
+        )
 
-        return
-
-    run(
-        "git clone https://github.com/comfyanonymous/ComfyUI.git /content/ComfyUI"
+    subprocess.run(
+        [
+            "pip",
+            "install",
+            "-r",
+            f"{COMFY_DIR}/requirements.txt",
+        ],
+        check=True,
     )
-
-    run("pip install -r /content/ComfyUI/requirements.txt")
