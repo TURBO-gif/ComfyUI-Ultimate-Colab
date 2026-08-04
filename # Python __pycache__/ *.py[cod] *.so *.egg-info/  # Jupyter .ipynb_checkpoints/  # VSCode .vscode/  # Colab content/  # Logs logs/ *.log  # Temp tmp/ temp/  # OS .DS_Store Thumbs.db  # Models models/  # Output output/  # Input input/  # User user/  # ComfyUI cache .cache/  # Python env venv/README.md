@@ -1,24 +1,21 @@
-# ComfyUI Ultimate Colab
+# 🚀 ComfyUI Ultimate Colab
 
 A professional Google Colab launcher for ComfyUI.
 
 ## Features
 
-- Google Drive Integration
-- Cloudflared Tunnel
-- Auto Install
-- Auto Update
-- Hugging Face Downloader
+- One-click launch
+- Cloudflared
+- Google Drive
+- HuggingFace Downloader
 - Civitai Downloader
-- Backup Manager
 - Dashboard
+- Backup
 - Workflow Manager
+- Auto Updates
 
 ## Roadmap
 
-- [x] Repository
-- [ ] Launcher
-- [ ] Downloader
-- [ ] Dashboard
-- [ ] Backup
-- [ ] GUI
+- [x] Phase 1
+- [ ] Phase 2
+- [ ] Phase 3
