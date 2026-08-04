@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# Colab
+content/
+
+# Logs
+logs/
+*.log
+
+# Temp
+tmp/
+temp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Models
+models/
+
+# Output
+output/
+
+# Input
+input/
+
+# User
+user/
+
+# ComfyUI cache
+.cache/
+
+# Python env
+venv/
+.env
