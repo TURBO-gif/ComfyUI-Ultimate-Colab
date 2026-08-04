@@ -1,18 +1,22 @@
-import shutil
 import psutil
+import shutil
+import subprocess
 
 
 def show():
 
-    print("=" * 50)
+    print("=" * 60)
 
-    print("SYSTEM")
+    print("ComfyUI Ultimate Colab")
 
-    print("=" * 50)
+    print("=" * 60)
 
     print(
         "RAM:",
-        round(psutil.virtual_memory().total / 1024**3, 2),
+        round(
+            psutil.virtual_memory().total / 1024**3,
+            2,
+        ),
         "GB",
     )
 
@@ -20,6 +24,20 @@ def show():
 
     print(
         "Disk:",
-        round(free / 1024**3, 2),
-        "GB free",
+        round(
+            free / 1024**3,
+            2,
+        ),
+        "GB Free",
     )
+
+    try:
+
+        subprocess.run(
+            ["nvidia-smi"],
+            check=False,
+        )
+
+    except Exception:
+
+        print("GPU unavailable")
