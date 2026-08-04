@@ -1,9 +1,0 @@
-requests
-tqdm
-psutil
-gdown
-huggingface_hub
-GitPython
-pyyaml
-rich
-packaging

@@ -1,3 +1,0 @@
-"""
-ComfyUI Ultimate Colab
-"""
