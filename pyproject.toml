@@ -1,0 +1,150 @@
+[build-system]
+requires = ["setuptools>=70.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+# ── Project metadata ────────────────────────────────────────
+[project]
+name = "comfy-launcher"
+version = "1.0.0"
+description = "The most powerful Google Colab launcher for ComfyUI"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+authors = [
+    { name = "ComfyUI Ultimate Colab Contributors" }
+]
+keywords = ["comfyui", "stable-diffusion", "colab", "ai", "image-generation"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Utilities",
+    "Environment :: GPU :: NVIDIA CUDA",
+]
+dependencies = [
+    "rich>=13.7.0",
+    "click>=8.1.7",
+    "requests>=2.31.0",
+    "httpx>=0.27.0",
+    "aiohttp>=3.9.5",
+    "tqdm>=4.66.4",
+    "aiofiles>=23.2.1",
+    "huggingface-hub>=0.23.4",
+    "gitpython>=3.1.43",
+    "psutil>=5.9.8",
+    "py-cpuinfo>=9.0.0",
+    "gputil>=1.4.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    "python-dotenv>=1.0.1",
+    "packaging>=24.1",
+    "tomlkit>=0.12.5",
+    "filelock>=3.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.2",
+    "pytest-asyncio>=0.23.7",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.14.0",
+    "responses>=0.25.3",
+    "black>=24.4.2",
+    "ruff>=0.4.9",
+    "mypy>=1.10.0",
+    "types-requests>=2.31.0",
+    "types-psutil>=5.9.5",
+]
+
+[project.scripts]
+comfy-launcher = "comfy_launcher.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/TURBO-gif/ComfyUI-Ultimate-Colab"
+Repository = "https://github.com/TURBO-gif/ComfyUI-Ultimate-Colab"
+Documentation = "https://github.com/TURBO-gif/ComfyUI-Ultimate-Colab/tree/main/docs"
+Issues = "https://github.com/TURBO-gif/ComfyUI-Ultimate-Colab/issues"
+
+# ── Setuptools ──────────────────────────────────────────────
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["comfy_launcher*"]
+
+# ── Black ───────────────────────────────────────────────────
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+include = '\.pyi?$'
+
+# ── Ruff ────────────────────────────────────────────────────
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "N",   # pep8-naming
+    "ANN", # flake8-annotations
+    "S",   # flake8-bandit
+    "SIM", # flake8-simplify
+    "TID", # flake8-tidy-imports
+    "RUF", # Ruff-specific
+]
+ignore = [
+    "ANN101", # Missing type annotation for self
+    "ANN102", # Missing type annotation for cls
+    "S101",   # Use of assert (needed in tests)
+    "S603",   # subprocess call (needed for launching)
+    "S607",   # Starting a process with a partial executable path
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN", "S"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["comfy_launcher"]
+
+# ── Mypy ────────────────────────────────────────────────────
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+exclude = ["tests/", "examples/"]
+
+# ── Pytest ───────────────────────────────────────────────────
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = [
+    "--cov=comfy_launcher",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+    "-v",
+]
+log_cli = true
+log_cli_level = "INFO"
+
+# ── Coverage ────────────────────────────────────────────────
+[tool.coverage.run]
+source = ["comfy_launcher"]
+omit = ["tests/*", "examples/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]

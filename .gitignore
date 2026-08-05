@@ -1,0 +1,100 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+MANIFEST
+.Python
+develop-eggs/
+downloads/
+lib/
+lib64/
+.env
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# PyCharm / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# Ruff / Black
+.ruff_cache/
+
+# Logs
+logs/
+*.log
+
+# Local config overrides
+config.local.json
+.env.local
+
+# Large binary files (models, etc.)
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.gguf
+
+# ComfyUI runtime directories (local dev)
+ComfyUI/
+ComfyUI_output/
+
+# Backup archives
+backups/*.zip
+backups/*.tar.gz
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets
+*.pem
+*.key
+secrets.json
+
+# Cloudflared binary
+cloudflared
+cloudflared.exe

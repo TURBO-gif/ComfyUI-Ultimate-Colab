@@ -1,0 +1,156 @@
+{
+  "_comment": "ComfyUI Ultimate Colab — Default Configuration",
+  "_version": "1.0.0",
+
+  "comfyui": {
+    "repo_url": "https://github.com/comfyanonymous/ComfyUI.git",
+    "dir": "/content/ComfyUI",
+    "port": 8188,
+    "host": "0.0.0.0",
+    "extra_args": "--dont-print-server --preview-method auto",
+    "venv_dir": null,
+    "branch": "master"
+  },
+
+  "drive": {
+    "enabled": true,
+    "mount_point": "/content/drive",
+    "root": "/content/drive/MyDrive/AI/ComfyUI",
+    "auto_mount": true,
+    "subdirs": {
+      "comfyui": "ComfyUI",
+      "models": "ComfyUI/models",
+      "input": "ComfyUI/input",
+      "output": "ComfyUI/output",
+      "user": "ComfyUI/user",
+      "workflows": "ComfyUI/workflows",
+      "custom_nodes": "ComfyUI/custom_nodes",
+      "downloads": "ComfyUI/downloads",
+      "logs": "ComfyUI/logs",
+      "backups": "ComfyUI/backups",
+      "config": "ComfyUI/config"
+    }
+  },
+
+  "tunnel": {
+    "provider": "cloudflare",
+    "port": 8188,
+    "timeout": 30,
+    "providers": {
+      "cloudflare": {
+        "binary_url": "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64",
+        "binary_path": "/content/cloudflared",
+        "args": ["tunnel", "--url"]
+      },
+      "pinggy": {
+        "host": "a.pinggy.io",
+        "port": 443,
+        "token": null
+      },
+      "localtunnel": {
+        "npm_package": "localtunnel",
+        "subdomain": null
+      }
+    }
+  },
+
+  "models": {
+    "auto_detect": true,
+    "verify_sha256": true,
+    "resume_downloads": true,
+    "chunk_size_mb": 10,
+    "max_retries": 3,
+    "retry_delay_seconds": 5,
+    "model_dirs": {
+      "checkpoints": "models/checkpoints",
+      "diffusion_models": "models/diffusion_models",
+      "loras": "models/loras",
+      "vae": "models/vae",
+      "text_encoders": "models/text_encoders",
+      "clip": "models/clip",
+      "clip_vision": "models/clip_vision",
+      "controlnet": "models/controlnet",
+      "embeddings": "models/embeddings",
+      "upscale_models": "models/upscale_models",
+      "unet": "models/unet",
+      "hypernetworks": "models/hypernetworks",
+      "style_models": "models/style_models",
+      "gligen": "models/gligen",
+      "photomaker": "models/photomaker"
+    }
+  },
+
+  "civitai": {
+    "api_key": null,
+    "base_url": "https://civitai.com/api/v1"
+  },
+
+  "huggingface": {
+    "token": null,
+    "cache_dir": null,
+    "endpoint": "https://huggingface.co"
+  },
+
+  "custom_nodes": {
+    "auto_update": true,
+    "install_requirements": true,
+    "nodes": [
+      {
+        "name": "ComfyUI Manager",
+        "url": "https://github.com/ltdrdata/ComfyUI-Manager.git",
+        "enabled": true
+      },
+      {
+        "name": "Impact Pack",
+        "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git",
+        "enabled": true
+      },
+      {
+        "name": "Efficiency Nodes",
+        "url": "https://github.com/jags111/efficiency-nodes-comfyui.git",
+        "enabled": true
+      }
+    ]
+  },
+
+  "backup": {
+    "enabled": true,
+    "auto_backup": false,
+    "auto_backup_interval_hours": 24,
+    "max_backups": 10,
+    "compress": true,
+    "include": {
+      "outputs": true,
+      "inputs": true,
+      "workflows": true,
+      "user": true,
+      "models": false,
+      "custom_nodes": true
+    },
+    "backup_dir": null
+  },
+
+  "logging": {
+    "level": "INFO",
+    "file_logging": true,
+    "log_dir": null,
+    "max_bytes": 10485760,
+    "backup_count": 5,
+    "format": "%(asctime)s | %(levelname)-8s | %(name)s:%(lineno)d | %(message)s"
+  },
+
+  "dashboard": {
+    "refresh_interval_seconds": 5,
+    "show_gpu": true,
+    "show_models": true,
+    "show_nodes": true,
+    "show_tunnel": true
+  },
+
+  "gpu": {
+    "auto_optimize": true,
+    "fp16": true,
+    "xformers": true,
+    "attention_slicing": false
+  }
+}
